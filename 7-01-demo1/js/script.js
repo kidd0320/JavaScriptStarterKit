@@ -18,7 +18,7 @@ window.addEventListener('load', () =>{
 
     loadingAreaGreen.animate(
         {
-            translate: ['0 100vh', '0, 0', '0 -100vh'],
+            translate: ['0 100vh', '0 0', '0 -100vh'],
         },
         {
             duration: 2000,
@@ -45,4 +45,17 @@ window.addEventListener('load', () =>{
             fill: 'forwards',
         }
     );
+});
+
+/**
+ * 画像ギャラリー
+ */
+const mainImage = document.querySelector('.gallery-image img');
+const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+
+thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('mouseover', (event) => {
+        mainImage.src = event.target.src;
+        mainImage.animate({opacity: [0, 1]}, 500)
+    });
 });
